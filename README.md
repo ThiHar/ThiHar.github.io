@@ -1,7 +1,7 @@
 # ThiHar.github.io
 # index.html
 # resume.html
-# master.css
+# CSS/master.css
 # images/Cards.jpg
 # images/Tower.jpg
 # images/View.jpg
