@@ -1,4 +1,4 @@
-/* Cascading stylesheet for the website */
+er/* Cascading stylesheet for the website */
 
 /* Text inside these asterisks and slashes are comments for human */
 
@@ -64,26 +64,13 @@
   }
 
   .columns{
-    float: left;
+    float: center;
     position: relative;
     margin-right: 20px;
 }
 
 .column {
-  float: left;
+  float: center;
   width: 50%;
 }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.row {
-  display: flex;
-}
-
-.column {
-  flex: 50%;
-}
