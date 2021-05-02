@@ -1,5 +1,5 @@
 # ThiHar.github.io
 # index.html
 # resume.html
-# /CSS
+# /CSS/mater.css
 # /images
