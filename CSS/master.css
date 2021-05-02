@@ -80,3 +80,10 @@
   display: table;
   clear: both;
 }
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
