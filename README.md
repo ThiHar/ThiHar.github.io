@@ -2,4 +2,8 @@
 # index.html
 # resume.html
 # /CSS/mater.css
-# /images
+# /images/Cards.jpg
+# /images/Tower.jpg
+# /images/View.jpg
+# /images/banner.jpg
+# /images/headshot.jpg
