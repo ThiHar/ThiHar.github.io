@@ -2,7 +2,7 @@
     var initialContainer = $('.columns'),
         columnItems = $('.columns li'),
         columns = null,
-        column = 2; // account for initial column
+        column = 1; // account for initial column
     function updateColumns(){
         column = 0;
         columnItems.each(function(idx, el){
