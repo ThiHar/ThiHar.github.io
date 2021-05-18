@@ -16,7 +16,7 @@ er/* Cascading stylesheet for the website */
     background-color: #36c2f3; /* set the background color here */
     color: black; /* set the text color to black here */
     font-family: Arial, Helvetica, sans-serif; /* set the font here */
-    text-align: center; /* set the text alignment here */
+    text-align: justify; /* set the text alignment here */
    }
 
   footer {
