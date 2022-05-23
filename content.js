@@ -24,20 +24,19 @@ var quotes = [
  {"": "And I say I don't like drama?!"},
   {"": "Don't you see how people grumble that roses have thorns instead of being grateful that thorns have roses?"},
  {"": "Be comfortable in your own skin, it's very genuine and far more attractive than being an all-perfect being."},
-  {"": "I guess all of us feel a bit "meeh" sometimes but well we have to be those so called social beings ARGH"},
+  {"": "I guess all of us feel a bit 'meeh' sometimes but well we have to be those so called social beings ARGH"},
  {"": "Oh but it's surprisingly good"},
  {"": "You're pretty interesting"},
   {"": "Not now. I'm glad I grew up"},
  {"": "Ah my preference for drama!!"},
   {"": "woah! well you ARE MADE FOR THIS!"},
- {"": ""I was not born to be subtle""},
+ {"": "I was not born to be subtle"},
   {"": "I suppose everyone's a bit narcissistic and a healthy dose of narcissism is actually healthy, "},
  {"": "I crave to someone else, rather than my true self,, not out of disappointment but for reasons unknown...in the process, I somehow ended up confused..."},
   {"": "the more you know, the more you think you're ignorant There are a looooooooooooot of things that im blissfully aware of! what.. i mean unaware of**
 "},
  {"": "Be good and kind to each other; you never know what others are going through."},
- {"": "
-although there's a thin line between loving thyself and narcissism"},
+ {"": "although there's a thin line between loving thyself and narcissism"},
 ];
 
 var quoteMachine = {
