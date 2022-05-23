@@ -44,3 +44,7 @@ div.quote p {
   margin-bottom: 50px;
   font-style: italic;
 }
+.responsive {
+  width: 100%;
+  height: auto;
+}
