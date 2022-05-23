@@ -14,7 +14,7 @@ main {
   margin: 0 auto;
   min-height: 100%;
   background-color: rgba(181, 186, 162, 0.7);
-  font-size: 150%;
+  font-size: 250%;
 }
 
 button, button:focus {
