@@ -139,40 +139,96 @@ const quotes = [
         answerDiv.innerHTML = quote;
     }
   </script>
-<script>
-	function displayRandomImage() {
-	  var images = [
-	  "images/image1.jpg",
-	  "images/image2.jpg",
-	  "images/image3.jpg",
-	  "images/image4.jpg",
-	  "images/image5.jpg",
-	  "images/image6.jpg"
-	  ];
-
-	  var randomIndex = Math.floor(Math.random() * images.length);
-	  var img = new Image();
-	  img.src = images[randomIndex];
-	  img.onload = function() {
-	    var ratio = img.width / img.height;
-	    var width = 500;
-	    var height = width / ratio;
-	    if (height > 500) {
-	      height = 500;
-	      width = height * ratio;
-	    }
-	    document.getElementById("image").width = width;
-	    document.getElementById("image").height = height;
-	    document.getElementById("image").src = images[randomIndex];
-	  }
+  <style>
+	#last-displayed-images {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
 	}
-	document.body.onload = displayRandomImage;
-  </script>
+	#last-displayed-images img {
+		object-fit: contain;
+		width: 200px;
+		height: 200px;
+		margin: 10px;
+	}
+</style>
+<script>
+    var lastFive = [];
+    var counter = 0;
+    var originalWidth, originalHeight;
+
+    function displayRandomImage() {
+        var images = [];
+        for (var i = 1; i <= 220; i++) {
+            images.push("images/image" + i + ".jpg");
+        }
+        var randomIndex = Math.floor(Math.random() * images.length);
+        var img = new Image();
+        img.src = images[randomIndex];
+        img.onload = function() {
+            var ratio = img.width / img.height;
+            var width = 500;
+            var height = width / ratio;
+            if (height > 500) {
+                height = 500;
+                width = height * ratio;
+            }
+            document.getElementById("image").width = width;
+            document.getElementById("image").height = height;
+            document.getElementById("image").src = images[randomIndex];
+            originalWidth = width;
+            originalHeight = height;
+        }
+
+        // add the last image to the lastFive array and remove the first image if the array is already at 5
+        lastFive.push(images[randomIndex]);
+        if (lastFive.length > 6) {
+            lastFive.shift();
+        }
+        // loop through the lastFive array and set the src of the appropriate img element
+        for (var i = 0; i < lastFive.length; i++) {
+            document.getElementById("last-image-" + i).src = lastFive[i];
+        }
+    }
+
+    function zoomIn(image) {
+        var img = image;
+        img.style.width = (img.width * 1.5) + "px";
+        img.style.height = (img.height * 1.5) + "px";
+    }
+
+    function zoomOut(image) {
+        var img = image;
+        img.style.width = originalWidth + "px";
+        img.style.height = originalHeight + "px";
+    }
+
+    function zoom(image) {
+        if (counter % 3 === 0) {
+            zoomOut(image);
+        } else {
+            zoomIn(image);
+        }
+        counter++;
+    }
+
+    document.body.onload = displayRandomImage;
+</script>
+
 </head>
 <body>
+	<img id="image" src="image" onclick="zoom(this)">
     <div>
       <h1 id="quote"></h1>
     </div>
+	<div id="last-displayed-images">
+		<img id="last-image-0" src="last-image-0" onclick="zoom(this)">
+		<img id="last-image-1" src="last-image-1" onclick="zoom(this)">
+		<img id="last-image-2" src="last-image-2" onclick="zoom(this)">
+		<img id="last-image-3" src="last-image-3" onclick="zoom(this)">
+		<img id="last-image-4" src="last-image-4" onclick="zoom(this)">
+		<img id="last-image-5" src="last-image-5" onclick="zoom(this)">
+	</div>	
     <div>
       <img id="image">
     </div>
