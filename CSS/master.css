@@ -44,3 +44,80 @@ div.quote p {
   margin-bottom: 50px;
   font-style: italic;
 }
+
+}
+
+div.quote cite {
+font-size: 110%;
+font-weight: normal;
+}
+
+/* Add media queries for responsiveness */
+@media only screen and (max-width: 768px) {
+main {
+width: 90%;
+}
+h1, h2 {
+font-size: large;
+}
+div.quote {
+padding: 10px;
+margin: 20px auto;
+border: 3px solid white;
+box-shadow: 3px 3px 1px rgb(87, 89, 88);
+}
+blockquote {
+font-size: 120%;
+}
+div.quote cite {
+font-size: 100%;
+}
+}
+
+/* Add media queries for different devices */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+main {
+width: 75%;
+}
+h1, h2 {
+font-size: x-large;
+}
+div.quote {
+padding: 15px;
+margin: 25px auto;
+border: 4px solid white;
+box-shadow: 4px 4px 1px rgb(87, 89, 88);
+}
+blockquote {
+font-size: 130%;
+}
+div.quote cite {
+font-size: 105%;
+}
+}
+
+@media only screen and (min-width: 1024px) {
+main {
+width: 70%;
+}
+h1, h2 {
+font-size: xx-large;
+}
+}
+
+/* Add media queries for printing */
+@media print {
+body {
+background-color: white;
+}
+main {
+background-color: white;
+}
+button, button:focus {
+display: none;
+}
+div.quote {
+border: none;
+box-shadow: none;
+}
+}
