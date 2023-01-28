@@ -131,23 +131,14 @@ const quotes = [
 	'I thought you might have been thinking to yourself, " argh when is this girl going to stop?"',
 ];
 
-
-function generateQuote() {
- 
-  const randomIndex = Math.floor(Math.random() * quotes.length);
-  
-  const quote = quotes[randomIndex];
-  
-  console.log(quote);
-}
-
-
-generateQuote();
     function generateAnswer() {
-        var quotes = ["Yes", "No", "Maybe", "Ask again later"];
-        var randomIndex = Math.floor(Math.random() * quotes.length);
-        var randomAnswer = quotes[randomIndex];
-        document.getElementById("answer").innerHTML = randomAnswer;
+        // Select a random quote
+        const randomIndex = Math.floor(Math.random() * quotes.length);
+        const quote = quotes[randomIndex];
+
+        // Display the quote in the answer div
+        const answerDiv = document.getElementById("answer");
+        answerDiv.innerHTML = quote;
     }
   </script>
 </body>
