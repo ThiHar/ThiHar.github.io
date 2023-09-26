@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #gift-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px;
+        }
+
+        #gift-list {
+            border: 1px solid #333;
+            padding: 10px;
+            border-radius: 5px;
+            width: 45%;
+            display: none; /* Hide the gift list by default */
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        #user-input {
+            margin: 20px;
+        }
+
+        #result {
+            margin: 20px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Picker</h1>
+    <div id="gift-container">
+        <div id="gift-list">
+            <h2>Gifts</h2>
+            <ul>
+                <li>Lunch Buffet</li>
+                <li>Movie Night</li>
+                <li>Coffee or Tea Tasting</li>
+                <li>Remote Cabin Getaway</li>
+                <li>Spa Day</li>
+                <li>Intimate Gazing</li>
+                <li>Dinner Buffet</li>
+                <li>Candle-lit Dinner</li>
+                <li>Day at the Beach</li>
+                <li>Picnic in the Park</li>
+                <li>Book Hunt Adventure</li>
+                <li>Cloth shoping</li>
+                <li>Movie Marathon</li>
+                <li>Explore the City</li>
+                <li>Nature Walk</li>
+                <li>Spa Day</li>
+                <li>Game Day/Night</li>
+                <li>Road Trip</li>
+                <li>Visit an Art Gallery/Museum</li>
+                <li>Bird Watching</li>
+                <li>Dinner Date</li>
+                <li>Lunch Date</li>
+                <li>Indoor Water Park</li>
+                <li>Nature Photography Expedition</li>
+                <li>Boat Rental</li>
+                <li>Villa by the Beach</li>
+                <li>Treehouse Stay</li>
+                <li>Rainforest Retreat</li>
+                <li>Garden Stay</li>
+                <li>Villa with a Pool</li>
+                <li>Movie Night</li>
+                <li>DIY Spa Day</li>
+                <li>Serenade Each Other</li>
+                <li>Bookstore or Library Visit</li>
+                <li>Garden Stroll</li>
+                <li>Cook a Special Meal</li>
+                <li>Photography Session</li>
+                <li>Wine and Dine</li>
+                <li>Slow Dancing</li>
+                <li>Kissing Game</li>
+                <li>Cuddling</li>
+                <li>Stargazing</li>
+                <li>Poetry Reading by the Fireplace</li>
+                <li>Ice Cream Mix</li>
+                <li>Homemade Gourmet Dinner</li>
+                <li>Board Games or Card Games</li>
+                <li>Chocolate Fondue</li>
+                <li>Reading Time</li>
+                <li>Home Cocktail Making</li>
+                <li>Listen to Music</li>
+                <li>Watch Funny Videos</li>
+                <li>Home Beer Tasting</li>
+                <li>Mutual Massage</li>
+                <li>Bubble Bath</li>
+                <li>Bedroom Picnic</li>
+                <li>Intimate Q&A</li>
+                <li>Intimate Gazing</li>
+                <li>Indoor Picnic and Wine</li>
+                <li>Shared Bubble Bath and Wine</li>
+                <li>Tarot Card Reading</li>
+                <li>Create a Time Capsule</li>
+                <li>Write a Love Poem</li>
+                <li>Bath and Body Scrub</li>
+                <li>Night of Affirmations</li>
+                <li>Painting Each Other's Portraits</li>
+                <li>Listening to Heartbeats</li>
+                <li>Dance by Candlelight</li>
+                <li>Shared Foot Soak and Pedicure</li>
+                <li>Coffee or Tea Tasting</li>
+                <li>Body Painting</li>
+                <li>Deep Breathing</li>
+                <li>Bubble Blowing and Whispers</li>
+                <li>Shared Shower or Bath</li>
+                <li>Sensual Guided Imagery</li>
+                <li>Soothing Handholding</li>
+                <li>Aromatherapy Bath</li>
+                <li>Sand Sculpture</li>
+                <li>Cloud Watching</li>
+                <li>Shared Reflection by the Fire</li>
+                <li>Visit Chocolatier</li>
+                <li>Shared Sensory Exploration</li>
+                <li>Sauna or Steam Room</li>
+                <li>Feather Teasing</li>
+                <li>Lingerie Shopping</li>
+                <li>Warm Milk Bath</li>
+            </ul>
+        </div>
+    </div>
+    <div id="user-input">
+        <label for="choice">Enter a number (1-6) or click Randomize:</label>
+        <input type="number" id="choice" min="1" max="6">
+        <button id="randomize-button">Randomize</button>
+    </div>
+    <div id="result">
+        <h2>Your Choices:</h2>
+        <ul id="chosen-gifts"></ul>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const choiceInput = document.getElementById("choice");
+            const randomizeButton = document.getElementById("randomize-button");
+            const chosenGifts = document.getElementById("chosen-gifts");
+
+            randomizeButton.addEventListener("click", function () {
+                const listElement = document.getElementById("gift-list");
+                const listItems = listElement.querySelectorAll("li");
+                const randomIndex = Math.floor(Math.random() * listItems.length);
+                const chosenGift = listItems[randomIndex].textContent;
+
+                // Create a new list item for the chosen gift and add it to the list
+                const listItem = document.createElement("li");
+                listItem.textContent = chosenGift;
+                chosenGifts.appendChild(listItem);
+            });
+
+            choiceInput.addEventListener("input", function () {
+                const choice = parseInt(choiceInput.value);
+                if (choice >= 1 && choice <= 6) {
+                    const listElement = document.getElementById("gift-list");
+                    const listItems = listElement.querySelectorAll("li");
+                    const chosenGift = listItems[choice - 1].textContent;
+
+                    // Create a new list item for the chosen gift and add it to the list
+                    const listItem = document.createElement("li");
+                    listItem.textContent = chosenGift;
+                    chosenGifts.appendChild(listItem);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
