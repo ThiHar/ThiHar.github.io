@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Generator Container</title>
+    <style>
+      /* Define generator container styles */
+      .generator-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      
+      /* Define generator styles */
+      .generator {
+        width: 25%;
+        text-align: center;
+        font-size: 32px;
+        padding: 16px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        border-radius: 10px;
+        margin: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- First row of generators -->
+    <div class="generator-container">
+      <div class="generator">
+        <p><strong>Number of cards to draw from Mich Infinite Ball:</strong></p>
+        <p id="draw-cards-Mich-infinite"></p>
+      </div>
+      <div class="generator">
+        <p><strong>Number of cards to draw from Apocalypse Arcana:</strong></p>
+        <p id="draw-cards-Apocalypse"></p>
+      </div>
+      <div class="generator">
+        <p><strong>Your Lucky Number:</strong></p>
+        <p id="lucky-number"></p>
+      </div>
+    </div>
+    
+    <!-- Second row of generators -->
+    <div class="generator-container">
+      <div class="generator">
+        <p><strong>Random Time:</strong></p>
+        <p id="random-time"></p>
+      </div>
+      <div class="generator">
+        <p><strong>Random Year:</strong></p>
+        <p id="random-year"></p>
+      </div>
+      <div class="generator">
+        <p><strong>Random Date & Month:</strong></p>
+        <p id="random-date-month"></p>
+      </div>
+    </div>
+    <!-- Third row of generators -->
+    <div class="generator-container">
+      <div class="generator">
+        <p><strong>Random Geographic Location:</strong></p>
+        <p id="random-location"></p>
+      </div>
+    </div>
+  </body>
+    <script>
+      // generate a random number between 1 and 100 and display it
+      document.getElementById("draw-cards-Mich-infinite").innerHTML = Math.floor(Math.random() * 10) + 1;
+      // generate a random number between 1 and 100 and display it
+      document.getElementById("draw-cards-Apocalypse").innerHTML = Math.floor(Math.random() * 10) + 1;
+      // generate a random number between 1 and 100 and display it
+      document.getElementById("lucky-number").innerHTML = Math.floor(Math.random() * 100) + 1;
+      // generate a random number between 1 and 100 and display it
+      document.getElementById("How-many-among-billions").innerHTML = Math.floor(Math.random() * 8000000000) + 1;
+
+
+      // generate a random time between 12:00 AM and 11:59 PM and display it
+      var hours = Math.floor(Math.random() * 12) + 1;
+      var minutes = Math.floor(Math.random() * 60);
+      var meridiem = Math.floor(Math.random() * 2) === 0 ? "AM" : "PM";
+      document.getElementById("random-time").innerHTML = hours + ":" + minutes.toString().padStart(2, "0") + " " + meridiem;
+
+      // generate a random year between 1950 and 2022 and display it
+      document.getElementById("random-year").innerHTML = Math.floor(Math.random() * (2022 - 1950 + 1)) + 1950;
+
+      // generate a random date and month between January 1st and December 31st and display it
+      var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      var monthIndex = Math.floor(Math.random() * 12);
+      var date = Math.floor(Math.random() * 31) + 1;
+      document.getElementById("random-date-month").innerHTML = months[monthIndex] + " " + date;
+
+      // generate a random geographic location (latitude and longitude) and display it
+      var latitude = (Math.random() * 180) - 90;
+      var longitude = (Math.random() * 360) - 180; document.getElementById("random-location").innerHTML = latitude.toFixed(2) + ", " + longitude.toFixed(2);
+    </script>
+</body>
+</html>

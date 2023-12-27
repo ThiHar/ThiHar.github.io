@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="CSS/master.css">
+  <title>Apocalypse Arcana</title>
+  <header>
+    <div class="row text-center">
+      <h1>Apocalypse Arcana</h1>
+    </div>
+  </header>
+  <main>
+    <div id="answer"></div>
+	<button onclick="displayRandomImage();">Let the End be Shown</button>
+  </main>
+
+</script>
+<style>
+  #last-displayed-images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+  }
+  #last-displayed-images img {
+      object-fit: contain;
+      width: 500px;
+      height: 500px;
+      margin: 10px;
+  }
+</style>
+<script>
+  var lastFive = [];
+  var counter = 0;
+  var originalWidth, originalHeight;
+
+  function displayRandomImage() {
+      var images = [];
+      for (var i = 1; i <= 29; i++) {
+          images.push("images/Apocalypse Arcana/image" + i + ".jpg");
+      }
+      var randomIndex = Math.floor(Math.random() * images.length);
+      var img = new Image();
+      img.src = images[randomIndex];
+      img.onload = function() {
+          var ratio = img.width / img.height;
+          var width = 500;
+          var height = width / ratio;
+          if (height > 500) {
+              height = 500;
+              width = height * ratio;
+          }
+          document.getElementById("image").width = width;
+          document.getElementById("image").height = height;
+          document.getElementById("image").src = images[randomIndex];
+          originalWidth = width;
+          originalHeight = height;
+      }
+
+      // add the last image to the lastFive array and remove the first image if the array is already at 5
+      lastFive.push(images[randomIndex]);
+      if (lastFive.length > 10) {
+          lastFive.shift();
+      }
+      // loop through the lastFive array and set the src of the appropriate img element
+      for (var i = 0; i < lastFive.length; i++) {
+          document.getElementById("last-image-" + i).src = lastFive[i];
+          document.getElementById("card-" + i).style.display = "block";
+          }
+  }
+
+  function zoomIn(image) {
+      var img = image;
+      img.style.width = (img.width * 1.3) + "px";
+      img.style.height = (img.height * 1.3) + "px";
+  }
+
+  function zoomOut(image) {
+      var img = image;
+      img.style.width = originalWidth + "px";
+      img.style.height = originalHeight + "px";
+  }
+
+  function zoom(image) {
+      if (counter % 3 === 0) {
+          zoomOut(image);
+      } else {
+          zoomIn(image);
+      }
+      counter++;
+  }
+
+  document.body.onload = displayRandomImage;
+</script>
+
+</head>
+<body>
+  <img id="image" src="image">
+  <div>
+    <h1 id="quote"></h1>
+  </div>
+  <div class="card-grid">
+      <div id="last-displayed-images">
+        <div class="card" id="card-0" style="display: none;">
+          <img id="last-image-0" src="" onclick="zoom(this)">
+        </div>
+        <div class="card" id="card-1" style="display: none;">
+          <img id="last-image-1" src="" onclick="zoom(this)">
+        </div>
+        <div class="card" id="card-2" style="display: none;">
+          <img id="last-image-2" src="" onclick="zoom(this)">
+        </div>
+        <div class="card" id="card-3" style="display: none;">
+          <img id="last-image-3" src="" onclick="zoom(this)">
+        </div>
+        <div class="card" id="card-4" style="display: none;">
+          <img id="last-image-4" src="" onclick="zoom(this)">
+        </div>
+        <div class="card" id="card-5" style="display: none;">
+          <img id="last-image-5" src="" onclick="zoom(this)">
+        </div>
+        <div class="card" id="card-6" style="display: none;">
+          <img id="last-image-6" src="" onclick="zoom(this)">
+        </div>
+        <div class="card" id="card-7" style="display: none;">
+          <img id="last-image-7" src="" onclick="zoom(this)">
+        </div>
+        <div class="card" id="card-8" style="display: none;">
+          <img id="last-image-8" src="" onclick="zoom(this)">
+        </div>
+        <div class="card" id="card-9" style="display: none;">
+          <img id="last-image-9" src="" onclick="zoom(this)">
+        </div>
+        <div class="card" id="card-10" style="display: none;">
+          <img id="last-image-10" src="" onclick="zoom(this)">
+        </div>
+        <div class="card" id="card-11" style="display: none;">
+          <img id="last-image-11" src="" onclick="zoom(this)">
+        </div>
+      </div>
+    </div>
+</body>
+</html>
